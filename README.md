@@ -4,7 +4,7 @@
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-danielaugustormelo-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/danielaugustormelo)
 [![Email](https://img.shields.io/badge/Email-dreimao4@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:dreimao4@gmail.com)
-[![AWS Certified](https://img.shields.io/badge/AWS-Certified_Cloud_Practitioner-FF9900?style=for-the-badge&logo=amazon-aws)](https://www.credly.com/badges/your-badge-id)
+[![AWS Certified](https://img.shields.io/badge/AWS-Certified_Cloud_Practitioner-FF9900?style=for-the-badge&logo=amazon-aws)](https://www.credly.com/badges/4cdedb8c-35f6-4386-8957-22cc50c51685)
 
 ---
 
