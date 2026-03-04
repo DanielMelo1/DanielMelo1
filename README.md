@@ -1,102 +1,95 @@
 # Daniel Melo
 
-**Platform Engineer** specializing in **Cloud-Native Infrastructure**, **Kubernetes Orchestration**, and **Site Reliability Engineering** for high-availability applications.
+**Cloud Engineer** focado em **Kubernetes**, **DevSecOps** e **Observability** na AWS.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-danielaugustormelo-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/danielaugustormelo)
-[![Email](https://img.shields.io/badge/Email-dreimao4@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:dreimao4@gmail.com)
-[![AWS Certified](https://img.shields.io/badge/AWS-Certified_Cloud_Practitioner-FF9900?style=for-the-badge&logo=amazon-aws)](https://www.credly.com/badges/4cdedb8c-35f6-4386-8957-22cc50c51685)
+Construo infraestrutura que resolve problemas reais — não só tutoriais.  
+Cada projeto aqui foi executado, testado, e tem evidência do que funcionou *e* do que não funcionou.
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-danielaugustormelo-0077B5?style=flat-square&logo=linkedin)](https://linkedin.com/in/danielaugustormelo)
+[![Medium](https://img.shields.io/badge/Medium-@dreimao4-000000?style=flat-square&logo=medium)](https://medium.com/@dreimao4)
+[![AWS](https://img.shields.io/badge/AWS-Cloud_Practitioner-FF9900?style=flat-square&logo=amazon-aws)](https://www.credly.com/badges/4cdedb8c-35f6-4386-8957-22cc50c51685)
+[![Location](https://img.shields.io/badge/Brazil-Remote_UTC--3-green?style=flat-square)](https://linkedin.com/in/danielaugustormelo)
 
 ---
 
-## 🚀 Featured Projects
+## O que eu construí
 
-### [MSP Multi-Tenant Observability Platform](https://github.com/DanielMelo1/msp-observability-platform)
-Production-ready Zabbix monitoring for MSPs managing multiple AWS clients with **SLA-aware auto-scaling** and **cost optimization**.
+### [MSP Observability Platform](https://github.com/DanielMelo1/msp-observability-platform)
+> Plataforma multi-tenant de monitoramento para MSPs com auto-scaling orientado por SLA
 
-- **Multi-tenant Kubernetes** on AWS EKS with namespace isolation
-- **SLA-specific monitoring**: Different thresholds per client (99% vs 99.99%)
-- **Webhook automation**: Zabbix triggers → kubectl auto-scaling
-- **Cost optimization**: 60% reduction through off-hours scaling
-- **Stack**: Kubernetes, Zabbix, Terraform, AWS (EKS, Multi-AZ, EBS CSI, ALB)
+O problema que resolvi: MSPs gerenciam múltiplos clientes com contratos diferentes. Um cliente Fintech com SLA 99.99% não pode ter a mesma política de escalonamento de um SaaS com SLA 99%. Construí um sistema onde cada cliente tem thresholds, réplicas e comportamento de scaling independentes, isolados por namespace no Kubernetes.
 
-### [AI Agent Platform](https://github.com/DanielMelo1/ai-agent-platform)
-Multi-provider LLM orchestration with intelligent routing on Kubernetes.
+- 3 perfis de cliente com SLAs distintos (99% / 99.5% / 99.99%)
+- Auto-scaling via webhook: Zabbix trigger → Python handler → kubectl scale
+- Redução de 60% no custo do cliente C com off-hours scaling
+- Stack: EKS 1.31 · Zabbix 7.0 · Terraform modular · PostgreSQL 15 · IRSA
 
-- **Multi-LLM support**: GPT-4, Claude, Gemini with cost-based routing
-- **Production infrastructure**: EKS cluster with Terraform IaC
-- **Observability stack**: Prometheus + Grafana monitoring
-- **Auto-scaling**: HPA with 99.9% uptime achieved
-- **Stack**: Kubernetes, FastAPI, LangChain, Terraform, Prometheus
+---
+
+### [DevSecOps Pipeline](https://github.com/DanielMelo1/repo-dev-secops-main)
+> SAST + DAST + IaC Security num pipeline só, com credenciais gerenciadas via SSM
+
+A maioria dos pipelines de segurança faz uma coisa — scan de código ou scan de container. Este faz os três: analisa o código (Trivy), testa a aplicação rodando (OWASP ZAP), e verifica a infraestrutura como código. Relatórios com timestamp no S3 para histórico de auditoria.
+
+- Trivy: filesystem + config + vulnerability + secret scan
+- OWASP ZAP: DAST automatizado contra aplicação em execução
+- SSM Parameter Store: zero credenciais hardcoded no pipeline
+- Stack: Terraform · CodePipeline · CodeBuild · Trivy · OWASP ZAP
+
+---
 
 ### [Kubernetes Production Platform](https://github.com/DanielMelo1/k8s-production-platform)
-Enterprise-grade EKS infrastructure with GitOps and complete observability.
+> EKS com 11 microsserviços em gRPC, observabilidade completa e deployment automatizado
 
-- **Production-ready EKS**: Multi-AZ deployment with auto-scaling
-- **GitOps workflows**: ArgoCD for continuous deployment
-- **Terraform modules**: Reusable IaC for consistent provisioning
-- **Security**: Network policies, RBAC, IAM roles
-- **Stack**: EKS, Terraform, Helm, ArgoCD, Grafana
+Deploy de uma aplicação e-commerce com 11 serviços em múltiplas linguagens (Go, Python, Java, Node.js, C#) comunicando via gRPC. O foco foi na plataforma — como provisionar, monitorar, escalar e destruir infraestrutura de forma reproduzível.
 
----
-
-## 💼 Professional Focus
-
-I specialize in building **cloud-native platforms** that enable development teams to ship faster while maintaining reliability and cost efficiency.
-
-**Core Expertise:**
-- **Platform Engineering**: Multi-tenant Kubernetes, Internal Developer Platforms (IDP), Developer Experience (DevEx)
-- **Site Reliability Engineering**: SLA monitoring, auto-scaling, observability, incident response
-- **Infrastructure as Code**: Terraform, CloudFormation, modular architectures
-- **Cloud-Native**: Kubernetes orchestration, container platforms, microservices
-- **AWS**: EKS, EC2, S3, RDS, VPC, CloudFront, Multi-AZ architectures
+- Multi-AZ com HPA e self-healing via liveness/readiness probes
+- Prometheus + Grafana para métricas de cluster e pods
+- Terraform para toda a infraestrutura (VPC, EKS, IAM, Security Groups)
+- Custo estimado documentado por recurso: ~$188/mês
 
 ---
 
-## 🛠️ Technology Stack
+### [Serverless Price Monitor](https://github.com/DanielMelo1/MonitorPrecosServerless)
+> Monitoramento de preços com Lambda, Step Functions e API Gateway
 
-**Platform & Orchestration**  
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Helm](https://img.shields.io/badge/Helm-0F1689?style=flat-square&logo=helm&logoColor=white)
-![ArgoCD](https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=argo&logoColor=white)
+Arquitetura serverless com 3 Lambdas independentes seguindo Single Responsibility Principle — coleta, processamento e API separados. Step Functions orquestra o fluxo. CI/CD provisionado via Terraform na pasta `ci-cd/`.
 
-**Infrastructure as Code**  
-![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white)
-![CloudFormation](https://img.shields.io/badge/CloudFormation-FF9900?style=flat-square&logo=amazon-aws&logoColor=white)
-
-**Cloud & Services**  
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white)
-![Amazon EKS](https://img.shields.io/badge/Amazon_EKS-FF9900?style=flat-square&logo=amazon-eks&logoColor=white)
-
-**Observability & SRE**  
-![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white)
-![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white)
-![Zabbix](https://img.shields.io/badge/Zabbix-D40000?style=flat-square&logo=zabbix&logoColor=white)
-
-**CI/CD & Automation**  
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)
-![GitOps](https://img.shields.io/badge/GitOps-FC6D26?style=flat-square&logo=git&logoColor=white)
-
-**Languages & Tools**  
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white)
-![HCL](https://img.shields.io/badge/HCL-7B42BC?style=flat-square&logo=terraform&logoColor=white)
+- Lambda Python 3.12 · Step Functions · DynamoDB · API Gateway
+- AWS SAM para deploy da aplicação + Terraform para CI/CD
+- GET /produtos/{id} retorna preço atual e histórico
 
 ---
 
-## 📫 Get in Touch
+## Stack
 
-I'm open to discussing **Platform Engineering**, **SRE**, and **Cloud-Native Architecture** opportunities, particularly in **Fintech** and **high-growth startups**.
-
-- 💼 **LinkedIn**: [danielaugustormelo](https://linkedin.com/in/danielaugustormelo)
-- 📧 **Email**: dreimao4@gmail.com
-- 🌍 **Location**: Brazil (Remote-friendly, UTC-3)
-- 💬 **Languages**: Portuguese (Native), English (Advanced), Spanish (Intermediate)
+```
+Cloud        AWS (EKS · EC2 · S3 · RDS · Lambda · CodePipeline · SSM · CloudFront)
+Kubernetes   EKS · HPA · IRSA · NetworkPolicy · Helm
+IaC          Terraform (modular) · CloudFormation · AWS SAM
+CI/CD        GitHub Actions (OIDC) · CodePipeline · CodeBuild · CodeDeploy · Jenkins
+Security     Trivy · OWASP ZAP · SonarQube · SSM SecureString · IAM least-privilege
+Observability Zabbix · Prometheus · Grafana · CloudWatch
+Databases    Aurora MySQL · DocumentDB · DynamoDB · PostgreSQL · Redis
+Containers   Docker · containerd · GHCR
+Languages    Python · Bash · HCL
+```
 
 ---
 
-<div align="center">
+## 13 artigos técnicos no Medium
 
-**Building reliable, scalable platforms for modern applications** ⚡
+Documento o que construo — incluindo os erros e como resolvi.  
+→ [medium.com/@dreimao4](https://medium.com/@dreimao4)
 
-</div>
+Temas: DevSecOps · EKS · Aurora · DynamoDB · S3 · CloudFront · CI/CD · Auto Scaling
+
+---
+
+## Contato
+
+- 💼 LinkedIn: [danielaugustormelo](https://linkedin.com/in/danielaugustormelo)
+- 📧 Email: dreimao4@gmail.com
+- 🌍 Brasil · Remoto · UTC-3
+- 🗣️ Português (nativo) · Inglês (avançado) · Espanhol (intermediário)
+
